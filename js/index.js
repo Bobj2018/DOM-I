@@ -55,3 +55,61 @@ let middleImg = document.getElementById('middle-img');
 middleImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
 
 //Set Text-Content
+let a = document.querySelectorAll('a');
+let nav = Object.values(siteContent['nav']);
+let navIndex = 0;
+
+a.forEach(element => {
+	element.textContent = nav[navIndex];
+	navIndex++;
+});
+
+let ctaHTML = document.querySelector('.cta-text').children;
+console.log();
+let cta = Object.values(siteContent['cta'])
+ctaIndex = 0;
+
+Array.from(ctaHTML).forEach(child => {
+	child.textContent = cta[ctaIndex];
+	navIndex++;
+})
+
+let topContentHTML = document.querySelector('.top-content').children;
+let bottomContentHTML = document.querySelector('.bottom-content').children;
+let mainContent = Object.values(siteContent['main-content']);
+
+//Remove Image
+let index = mainContent.indexOf('img/mid-page-accent.jpg');
+if (index > -1) {
+	mainContent.splice(index, 1);
+}
+let mcIndex = 0;
+
+Array.from(topContentHTML[0].children).forEach(child => {
+	child.textContent = mainContent[mcIndex];
+	mcIndex++;
+})
+
+Array.from(topContentHTML[1].children).forEach(child => {
+	child.textContent = mainContent[mcIndex];
+	mcIndex++;
+})
+
+Array.from(bottomContentHTML[0].children).forEach(child => {
+	child.textContent = mainContent[mcIndex];
+	mcIndex++;
+})
+
+Array.from(bottomContentHTML[1].children).forEach(child => {
+	child.textContent = mainContent[mcIndex];
+	mcIndex++;
+})
+
+Array.from(bottomContentHTML[2].children).forEach(child => {
+	child.textContent = mainContent[mcIndex];
+	mcIndex++;
+})
+
+let footer = document.querySelector('contact');
+
+
